@@ -75,9 +75,15 @@ ACCEPTANCE CRITERIA:
         - View employees by manager
         - View employees by department
         - Delete departments. roles, and employees
-        - View the totl budget of a department, in other words, tyhe combines salaries of all employees in that department
+        - View the total budget of a department, in other words, tyhe combines salaries of all employees in that department
 
 4. SUBMIT THE CHALLENGE:
 
     - walkthrough video on screencastify
     - URL of github repo
+
+
+
+***INSTRUCTIONS
+
+    Run npm start in terminal to start app. Run mysql -u root -p in terminal to run MySQL.
