@@ -31,5 +31,11 @@ const mainMenu = async () => {
       })
       .then((answer) => {
         // user answer into the switch case
+        switch (answer.action) {
+            case "View All Employees":
+                allController.displayAll(mainMenu) // from line 8
+                break;
+            case
+        }
       })
 }
