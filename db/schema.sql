@@ -1,35 +1,26 @@
 DROP DATABASE IF EXISTS corporation;
 
---create a new database--
 CREATE DATABASE corporation;
-
 USE corporation;
 
---create the department table--
+
 CREATE TABLE department(
-    id INT AUTO_INCREMENT,
-    department_name VARCHAR(30) NOT NULL,
-    PRIMARY KEY (id)
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    department_name VARCHAR(30)
 );
 
--- create the role table--
-CREATE TABLE roles(
-    id INT AUTO_INCREMENT,
+CREATE TABLE role(
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(30),
-    salary DECIMAL
-    department_id INT,
-    PRIMARY KEY (id),
-    FOREIGN KEY (department_id) REFERENCES department_id
+    salary INTEGER
+    department_id INTEGER,
 );
 
--- create the employee table --
 CREATE TABLE employee(
-    id INT AUTO_INCREMENT,
-    first_name VARCHAR(30),
-    last_name VARCHAR (30),
-    role_id INT,
-    manager_id INT,
-    PRIMARY KEY (id),
-    FOREIGN KEY(manager_id) REFERENCES employees (id)
+    id INTEGER AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(30) NOT NULL,
+    last_name VARCHAR (30) NOT NULL,
+    role_id INTEGER,
+    manager_id INTEGER,
 );
 

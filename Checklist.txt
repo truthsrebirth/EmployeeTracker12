@@ -91,6 +91,7 @@ ACCEPTANCE CRITERIA:
     npm i mysql2
     npm i inquirer
     npm i console.table
+    npm i express
     mysql -u root -p , then enter password
     enter "source db/schema.sql"
 
