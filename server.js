@@ -33,9 +33,41 @@ const mainMenu = async () => {
         // user answer into the switch case
         switch (answer.action) {
             case "View All Employees":
-                allController.displayAll(mainMenu) // from line 8
+                allController.displayAll(mainMenu); // from line 8
                 break;
-            case
+            case "View All Employees by ROLE":
+                roleController.displayAllRoles(mainMenu);
+                break;
+            case "View All Employees by DEPARTMENT":
+                departmentController.displayAllDept(mainMenu);
+                break;
+            case "View All Employees by MANAGER":
+                employeeController.displayAllManager(mainMenu);
+                break;
+            case "Add Employee":
+                roleController.addEmployee(mainMenu);
+                break;
+            case "Add Department":
+                departmentController.addDepartment(mainMenu);
+                break;
+            case "Update Employee ROLE":
+                roleController.updateRole(mainMenu);
+                break;
+            case "Update Employee MANAGER":
+                employeeController.updateManager(mainMenu);
+                break;
+            case "Delete Employee":
+                employeeController.deleteEmployee(mainMenu);
+                break;
+            case "Delete ROLE":
+                roleController.deleteRole(mainMenu);
+                break;
+            case "Delete DEPARTMENT":
+                departmentController.deleteDepartment(mainMenu);
+                break;
         }
-      })
-}
+      });
+};
+
+// call the mainMenu function
+mainMenu();
