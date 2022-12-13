@@ -86,4 +86,5 @@ ACCEPTANCE CRITERIA:
 
 ***INSTRUCTIONS
 
-    Run npm start in terminal to start app. Run mysql -u root -p in terminal to run MySQL.
+    npm install
+    mysql
