@@ -46,6 +46,7 @@ ACCEPTANCE CRITERIA:
         -- npm i console.table
 
 
+***DONE***
 2. MY schema should contain the following 3 tables:
 
     department
