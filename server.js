@@ -1,10 +1,11 @@
 // require inquirer
-const inquirer = require('inquirer');
+const inquirer = import('inquirer');
+const appConnection = require('./db/connection');
 const database = require('./db/connection');
 
 // connect the database
-database.connect(err => {
-    if (err) throw err;
+appConnection.connect(err => {
+    if (err)throw err;
     console.log('The database is properly connected!');
     
     // call function here from line 15
@@ -32,7 +33,7 @@ function terminalPrompt() {
 
     ]).then((answers) => {
         if(answers.answers === 'View All Roles') {
-            database.query(`SELECT * FROM roles`, (err, result) => {
+            appConnection.query(`SELECT * FROM roles`, (err, result) => {
               if (err) {
                 console.log(err);
                 return err;
@@ -43,7 +44,7 @@ function terminalPrompt() {
             });
 
         } else if (answers.answers === 'View All Employees') {
-            database.query(`SELECT * FROM employee`, (err, result) => {
+            appConnection.query(`SELECT * FROM employee`, (err, result) => {
                 if (err) {
                     console.log(err);
                     return err;
@@ -54,7 +55,7 @@ function terminalPrompt() {
             });
             
         } else if (answers.answers === 'View All departments') {
-            database.query(`SELECT * FROM department`, (err, result) => {
+            appConnection.query(`SELECT * FROM department`, (err, result) => {
                 if (err) {
                     return err;
                 }
@@ -79,7 +80,7 @@ function terminalPrompt() {
                 }
 
             }]).then((choiceOFDepartment) => {
-                database.query(`INSERT INTO department (department_name) VALUES ()`, [choiceOFDepartment.choiceOFDepartment], (err, result) => {
+                appConnection.query(`INSERT INTO department (department_name) VALUES ()`, [choiceOFDepartment.choiceOFDepartment], (err, result) => {
                     if (err) {
                         console.log(err);
                         return err;
@@ -91,7 +92,7 @@ function terminalPrompt() {
             })
 
         } else if (answers.answers === 'Add Role') {
-            database.query(`SELECT * FROM department`, (err, result) => {
+            appConnection.query(`SELECT * FROM department`, (err, result) => {
                 if (err) {
                     console.log(err);
                     return err;
@@ -116,7 +117,7 @@ function terminalPrompt() {
                     name: 'department',
                     message: 'Enter the department for the role',
 
-                }]).then =((answers) => { database.query(`INSERT INTO roles (title, salary, department_id) VALUES ()`, [answers.roles, answers.department], (err, result) => {
+                }]).then =((answers) => { appConnection.query(`INSERT INTO roles (title, salary, department_id) VALUES ()`, [answers.roles, answers.department], (err, result) => {
                     if (err) {
                         console.log(err);
                         return err;
@@ -128,7 +129,7 @@ function terminalPrompt() {
             });
 
         } else if (answers.answers === 'Add an employee') {
-            database.query(`SELECT * FROM employee`, (err, employees) => {
+            appConnection.query(`SELECT * FROM employee`, (err, employees) => {
                 if (err) {
                     console.log(err);
                     return err;
@@ -180,7 +181,7 @@ function terminalPrompt() {
             var first_name = answers.firstName;
             var manager_id = answers.manager_id;
 
-            database.query(`SELECT * FROM roles`, (err, roles) => {
+            appConnection.query(`SELECT * FROM roles`, (err, roles) => {
                 if (err) {
                     console.log(err);
                     return err;
@@ -204,7 +205,7 @@ function terminalPrompt() {
                         first_name, last_name, manager_id, role_id
                     }
 
-                    database.query('INSERT INTO employee SET ', employee, (err) => {
+                    appConnection.query('INSERT INTO employee SET ', employee, (err) => {
                         if (err) {
                             console.log(err);
                             return err;
@@ -218,7 +219,7 @@ function terminalPrompt() {
         })
             })
         } else if (answers.answers === 'Update an employee role') {
-            database.query(`SELECT * FROM employee, role`, (err, result) => {
+            appConnection.query(`SELECT * FROM employee, role`, (err, result) => {
                 if (err) {
                     console.log(err);
                     return err;
@@ -274,7 +275,7 @@ function terminalPrompt() {
                 }
             },
             
-            database.query(`UPDATE employee SET ? WHERE ?`, [{ role_id: employeeRole}, {last_name: name}], (err, result) => {
+            appConnection.query(`UPDATE employee SET ? WHERE ?`, [{ role_id: employeeRole}, {last_name: name}], (err, result) => {
                 if (err) {
                     console.log(err);
                     return err;
@@ -290,7 +291,7 @@ function terminalPrompt() {
 
 
 
-database.connect((err) => {
+appConnection.connect((err) => {
     if (err) throw err;
     console.log('Database is connected');
     terminalPrompt()

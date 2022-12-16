@@ -1,6 +1,8 @@
 // require the mysql package from package json file
 const mysql = require('mysql2');
 
+require('dotenv').config();
+
 const appConnection = mysql.createConnection({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
