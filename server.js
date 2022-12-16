@@ -288,6 +288,8 @@ function terminalPrompt() {
     })
 };
 
+
+
 database.connect((err) => {
     if (err) throw err;
     console.log('Database is connected');
